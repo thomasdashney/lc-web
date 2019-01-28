@@ -1,0 +1,1 @@
+export const FIXED_MOBILE_HEADING_HEIGHT = 66;
