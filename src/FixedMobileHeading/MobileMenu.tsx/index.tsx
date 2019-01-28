@@ -11,7 +11,7 @@ const MobileMenuContainer = styled.nav<{ open: boolean }>`
   background-color: black;
   visibility: ${props => (props.open ? "visible" : "hidden")};
   z-index: 1;
-  transition: opacity 0.4s;
+  transition: all 0.4s;
   opacity: ${props => (props.open ? 1 : 0)};
 `;
 
