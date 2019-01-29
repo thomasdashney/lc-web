@@ -1,4 +1,5 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useState } from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import flowerBgUrl from "./flower-bg/flower_bg.jpg";
 import flowerBg10Url from "./flower-bg/flower_bg@0,1x.jpg";
 import flowerBg25Url from "./flower-bg/flower_bg@0,25x.jpg";
@@ -9,7 +10,8 @@ import FixedMobileHeading from "./FixedMobileHeading";
 import MediaQuery from "react-responsive";
 import { BREAKPOINTS, mediaQuery } from "./media-queries";
 import { FIXED_MOBILE_HEADING_HEIGHT } from "./FixedMobileHeading/constants";
-import Splash from "./Splash";
+import SplashHeading from "./SplashHeading";
+import Main from "./Main";
 
 const AppContainer = styled.div`
   position: absolute;
@@ -17,7 +19,7 @@ const AppContainer = styled.div`
   height: 100%;
 `;
 
-const FlowerBackground = styled.div`
+const FlowerBackground = styled.div<{ trippy: boolean }>`
   position: fixed;
   ${mediaQuery({ max: 661 })`
     background-image: url(${flowerBg10Url});
@@ -49,7 +51,7 @@ const FlowerBackground = styled.div`
   }
 
   transform: scale(1.1);
-  animation: rotateHueBlur 24s alternate infinite;
+  ${props => props.trippy && "animation: rotateHueBlur 24s alternate infinite;"}
 
   @keyframes rotateHueBlur {
     0% {
@@ -71,37 +73,54 @@ const FlowerBackground = styled.div`
 `;
 
 const App: FunctionComponent = () => {
+  const [splashOpen, setSplashOpen] = useState(true);
+
   return (
-    <AppContainer>
-      <FlowerBackground />
-      <Splash />
-      {/* <MediaQuery maxWidth={BREAKPOINTS.tabletMax}>
-        {isMobile => {
-          if (isMobile) {
+    <Router>
+      <AppContainer>
+        <Route path="/" exact>
+          {({ match }) => {
+            const showSplash = !!match && splashOpen;
             return (
               <>
-                <FixedMobileHeading />
-                <div
-                  style={{
-                    top: `${FIXED_MOBILE_HEADING_HEIGHT}px`,
-                    position: "relative"
-                  }}
-                >
-                  <div style={{ fontSize: "40px" }}>Content</div>
-                  <br />
-                </div>
+                <FlowerBackground trippy={false} />
+                <SplashHeading
+                  show={showSplash}
+                  onEnterSitePress={() => setSplashOpen(false)}
+                />
+                <Main splashOpen={showSplash} />
               </>
             );
-          }
+          }}
+          {/* <MediaQuery maxWidth={BREAKPOINTS.tabletMax}>
+            {isMobile => {
+              if (isMobile) {
+                return (
+                  <>
+                    <FixedMobileHeading />
+                    <div
+                      style={{
+                        top: `${FIXED_MOBILE_HEADING_HEIGHT}px`,
+                        position: "relative"
+                      }}
+                    >
+                      <div style={{ fontSize: "40px" }}>Content</div>
+                      <br />
+                    </div>
+                  </>
+                );
+              }
 
-          return (
-            <>
-              <LargeScreenHeading />
-            </>
-          );
-        }}
-      </MediaQuery> */}
-    </AppContainer>
+              return (
+                <>
+                  <LargeScreenHeading />
+                </>
+              );
+            }}
+          </MediaQuery> */}
+        </Route>
+      </AppContainer>
+    </Router>
   );
 };
 
