@@ -1,10 +1,13 @@
 import React, { FunctionComponent } from "react";
-import flowerBgUrl from "./flower_bg.jpg";
+import flowerBgUrl from "./flower-bg/flower_bg.jpg";
+import flowerBg10Url from "./flower-bg/flower_bg@0,1x.jpg";
+import flowerBg25Url from "./flower-bg/flower_bg@0,25x.jpg";
+import flowerBg50Url from "./flower-bg/flower_bg@0,5x.jpg";
 import styled from "styled-components";
 import LargeScreenHeading from "./LargeScreenHeading";
 import FixedMobileHeading from "./FixedMobileHeading";
 import MediaQuery from "react-responsive";
-import { BREAKPOINTS } from "./media-queries";
+import { BREAKPOINTS, mediaQuery } from "./media-queries";
 import { FIXED_MOBILE_HEADING_HEIGHT } from "./FixedMobileHeading/constants";
 import Splash from "./Splash";
 
@@ -16,7 +19,18 @@ const AppContainer = styled.div`
 
 const FlowerBackground = styled.div`
   position: fixed;
-  background-image: url(${flowerBgUrl});
+  ${mediaQuery({ max: 661 })`
+    background-image: url(${flowerBg10Url});
+  `}
+  ${mediaQuery({ min: 662, max: 1640 })`
+    background-image: url(${flowerBg25Url});
+  `}
+  ${mediaQuery({ min: 1640, max: 3276 })`
+    background-image: url(${flowerBg50Url});
+  `}
+  ${mediaQuery({ min: 3277 })`
+    background-image: url(${flowerBgUrl});
+  `}
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
