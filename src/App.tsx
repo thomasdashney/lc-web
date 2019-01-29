@@ -73,20 +73,18 @@ const FlowerBackground = styled.div<{ trippy: boolean }>`
 `;
 
 const App: FunctionComponent = () => {
-  const [splashOpen, setSplashOpen] = useState(true);
-
   return (
     <Router>
       <AppContainer>
         <Route path="/" exact>
-          {({ match }) => {
-            const showSplash = !!match && splashOpen;
+          {({ match, history }) => {
+            const showSplash = !!match;
             return (
               <>
-                <FlowerBackground trippy={false} />
+                <FlowerBackground trippy={!showSplash} />
                 <SplashHeading
                   show={showSplash}
-                  onEnterSitePress={() => setSplashOpen(false)}
+                  onEnterSitePress={() => history.push("/music")}
                 />
                 <Main splashOpen={showSplash} />
               </>

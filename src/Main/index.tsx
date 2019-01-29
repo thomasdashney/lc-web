@@ -6,13 +6,14 @@ import appleMusicIcon from "./stream-platform-images/applemusic.png";
 import googlePlayIcon from "./stream-platform-images/googleplay.png";
 import itunesIcon from "./stream-platform-images/itunes.png";
 import spotifyIcon from "./stream-platform-images/spotify.png";
+import Navigation from "./Navigation";
 
 const ContentContainer = styled.div<{ adjustForSplash: boolean }>`
   z-index: 11;
   position: absolute;
   left: 0;
   right: 0;
-  transition: all 1.6s cubic-bezier(0.64, -0.24, 0.54, 0.88);
+  transition: all 2s cubic-bezier(0.64, -0.24, 0.54, 0.88);
   top: 0;
   padding: 0;
   ${props =>
@@ -33,6 +34,7 @@ const MainHeading = styled.h1<{ adjustForSplash: boolean }>`
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
+  margin-bottom: 4px;
   ${props => {
     if (props.adjustForSplash) {
       return css`
@@ -136,6 +138,7 @@ const Main: FunctionComponent<IMainProps> = ({ splashOpen }) => {
   return (
     <ContentContainer adjustForSplash={splashOpen}>
       <MainHeading adjustForSplash={splashOpen}>Lost Cousins</MainHeading>
+      <Navigation show={!splashOpen} />
       <AlbumFeatureContainer>
         <InSceneryImg src={inSceneryCoverUrl} />
         <InSceneryDescription>
