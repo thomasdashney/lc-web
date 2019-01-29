@@ -17,6 +17,11 @@ export const tabletUp = mediaQuery({
   min: BREAKPOINTS.tabletMin
 });
 
+export const tabletOnly = mediaQuery({
+  min: BREAKPOINTS.tabletMin,
+  max: BREAKPOINTS.tabletMax
+});
+
 export const laptopUp = mediaQuery({
   min: BREAKPOINTS.laptopMin
 });

@@ -61,7 +61,7 @@ const App: FunctionComponent = () => {
     <AppContainer>
       <FlowerBackground />
       <Splash />
-      <MediaQuery maxWidth={BREAKPOINTS.tabletMax}>
+      {/* <MediaQuery maxWidth={BREAKPOINTS.tabletMax}>
         {isMobile => {
           if (isMobile) {
             return (
@@ -86,7 +86,7 @@ const App: FunctionComponent = () => {
             </>
           );
         }}
-      </MediaQuery>
+      </MediaQuery> */}
     </AppContainer>
   );
 };
