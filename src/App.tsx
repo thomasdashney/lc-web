@@ -6,6 +6,7 @@ import FixedMobileHeading from "./FixedMobileHeading";
 import MediaQuery from "react-responsive";
 import { BREAKPOINTS } from "./media-queries";
 import { FIXED_MOBILE_HEADING_HEIGHT } from "./FixedMobileHeading/constants";
+import Splash from "./Splash";
 
 const AppContainer = styled.div`
   position: absolute;
@@ -59,6 +60,7 @@ const App: FunctionComponent = () => {
   return (
     <AppContainer>
       <FlowerBackground />
+      <Splash />
       <MediaQuery maxWidth={BREAKPOINTS.tabletMax}>
         {isMobile => {
           if (isMobile) {
@@ -71,13 +73,18 @@ const App: FunctionComponent = () => {
                     position: "relative"
                   }}
                 >
-                  Content!
+                  <div style={{ fontSize: "40px" }}>Content</div>
+                  <br />
                 </div>
               </>
             );
           }
 
-          return <LargeScreenHeading />;
+          return (
+            <>
+              <LargeScreenHeading />
+            </>
+          );
         }}
       </MediaQuery>
     </AppContainer>

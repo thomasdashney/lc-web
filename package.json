@@ -2,6 +2,7 @@
   "name": "lc-web",
   "version": "0.1.0",
   "private": true,
+  "repository": "https://github.com/thomasdashney/lc-web",
   "dependencies": {
     "@types/jest": "23.3.13",
     "@types/node": "10.12.18",
