@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react";
 import styled from "styled-components";
-import projectionsBandUrl from "./proj2.png";
+import bandProjectionsSm from "./band_projections/band_projections_sm.png";
+import bandProjectionsLg from "./band_projections/band_projections_lg.png";
+import bandProjectionsXl from "./band_projections/band_projections_xl.png";
 import inSceneryCoverUrl from "./in_scenery_cover.jpg";
 import { laptopUp, tabletUp, desktopUp, BREAKPOINTS } from "../media-queries";
 import appleMusicIcon from "./stream-platform-images/applemusic.png";
@@ -146,13 +148,10 @@ const InSceneryDescription = styled.div`
 `;
 
 const InSceneryStreamingLinks = styled.div`
-  padding: 0 12px 20px;
-  ${tabletUp`
-    width: 86%;
-    & > * {
-      padding: 0 16px;
-    }
-  `}
+  padding-bottom: 20px;
+  & a {
+    padding: 0 10px;
+  }
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -162,8 +161,14 @@ const InSceneryStreamingLinks = styled.div`
 const Splash: FunctionComponent = () => {
   return (
     <SplashContainer>
-      <MediaQuery minWidth={BREAKPOINTS.tabletMin}>
-        <ProjectionsImg src={projectionsBandUrl} />
+      <MediaQuery minWidth={BREAKPOINTS.tabletMin} maxWidth={795}>
+        <ProjectionsImg src={bandProjectionsSm} />
+      </MediaQuery>
+      <MediaQuery minWidth={796} maxWidth={1501}>
+        <ProjectionsImg src={bandProjectionsLg} />
+      </MediaQuery>
+      <MediaQuery minWidth={1502}>
+        <ProjectionsImg src={bandProjectionsXl} />
       </MediaQuery>
       <EnterSiteButton>Enter Site</EnterSiteButton>
       <SplashContentContainer>
