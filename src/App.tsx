@@ -35,7 +35,7 @@ const FlowerBackground = styled.div`
   }
 
   transform: scale(1.1);
-  animation: rotateHueBlur 24s alternate infinite;
+  /* animation: rotateHueBlur 24s alternate infinite; */
 
   @keyframes rotateHueBlur {
     0% {
