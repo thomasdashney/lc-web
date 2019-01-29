@@ -60,7 +60,12 @@ const Navigation: FunctionComponent<INavigationProps> = ({ show }) => {
       <NavigationItem to="/photos">Photos</NavigationItem>
       <NavigationItem to="/videos">Videos</NavigationItem>
       <NavigationItem to="/connect">Connect</NavigationItem>
-      <NavigationItem to="/merch">Merch</NavigationItem>
+      <NavigationItem
+        external
+        to="https://www.merchmrkt.com/merchmrkt/vendor/lostcousins"
+      >
+        Merch
+      </NavigationItem>
     </NavigationItemList>
   );
 };
@@ -68,15 +73,23 @@ const Navigation: FunctionComponent<INavigationProps> = ({ show }) => {
 interface INavigationItemProps {
   to: string;
   children: string;
+  external?: boolean;
 }
 
 const NavigationItem: FunctionComponent<INavigationItemProps> = ({
   to,
-  children
-}) => (
-  <li>
-    <NavLink to={to}>{children}</NavLink>
-  </li>
-);
+  children,
+  external
+}) => {
+  return (
+    <li>
+      {external ? (
+        <a href={to}>{children}</a>
+      ) : (
+        <NavLink to={to}>{children}</NavLink>
+      )}
+    </li>
+  );
+};
 
 export default Navigation;
