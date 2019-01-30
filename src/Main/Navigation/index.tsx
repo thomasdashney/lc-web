@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
+import { MENU_ITEMS } from "../../menu";
+import NavigationLink from "../../NavigationLink";
 
 const NavigationItemList = styled.ul<{ show: boolean }>`
   transition: all 2s;
@@ -55,40 +57,14 @@ interface INavigationProps {
 const Navigation: FunctionComponent<INavigationProps> = ({ show }) => {
   return (
     <NavigationItemList show={show}>
-      <NavigationItem to="/music">Music</NavigationItem>
-      <NavigationItem to="/shows">Shows</NavigationItem>
-      <NavigationItem to="/photos">Photos</NavigationItem>
-      <NavigationItem to="/videos">Videos</NavigationItem>
-      <NavigationItem to="/connect">Connect</NavigationItem>
-      <NavigationItem
-        external
-        to="https://www.merchmrkt.com/merchmrkt/vendor/lostcousins"
-      >
-        Merch
-      </NavigationItem>
+      {MENU_ITEMS.map(menuItem => (
+        <li key={menuItem.to}>
+          <NavigationLink to={menuItem.to} external={menuItem.external}>
+            {menuItem.name}
+          </NavigationLink>
+        </li>
+      ))}
     </NavigationItemList>
-  );
-};
-
-interface INavigationItemProps {
-  to: string;
-  children: string;
-  external?: boolean;
-}
-
-const NavigationItem: FunctionComponent<INavigationItemProps> = ({
-  to,
-  children,
-  external
-}) => {
-  return (
-    <li>
-      {external ? (
-        <a href={to}>{children}</a>
-      ) : (
-        <NavLink to={to}>{children}</NavLink>
-      )}
-    </li>
   );
 };
 

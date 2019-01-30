@@ -7,6 +7,7 @@ import LCLogo from "./LCLogo";
 
 const FixedMobileHeadingContainer = styled.div`
   position: fixed;
+  z-index: 30;
   height: ${FIXED_MOBILE_HEADING_HEIGHT}px;
   background-color: black;
   top: 0;
@@ -32,7 +33,7 @@ const FixedMobileHeading: FunctionComponent = () => {
           onClick={() => setMenuOpen(prevOpen => !prevOpen)}
         />
       </FixedMobileHeadingContainer>
-      <MobileMenu open={menuOpen} />
+      <MobileMenu open={menuOpen} onClickLink={() => setMenuOpen(false)} />
     </>
   );
 };
