@@ -1,7 +1,13 @@
 import React, { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 import inSceneryCoverUrl from "./in_scenery_cover.jpg";
-import { laptopUp, tabletUp, desktopUp, BREAKPOINTS } from "../media-queries";
+import {
+  laptopUp,
+  tabletUp,
+  desktopUp,
+  BREAKPOINTS,
+  tabletOnly
+} from "../media-queries";
 import appleMusicIcon from "./stream-platform-images/applemusic.png";
 import googlePlayIcon from "./stream-platform-images/googleplay.png";
 import itunesIcon from "./stream-platform-images/itunes.png";
@@ -16,19 +22,18 @@ const ContentContainer = styled.div<{ splashOpen: boolean }>`
   position: absolute;
   left: 0;
   right: 0;
-  padding: 0;
+  top: 0;
   ${props =>
     props.splashOpen
-      ? `
-    top: 40px;
-    ${tabletUp`
-      padding: 12px;
-      top: 36vh;
-    `}
-    ${laptopUp`
-      top: 40vh;
-    `}
-  `
+      ? css`
+          top: 40px;
+          ${tabletUp`
+            top: 36vh;
+          `}
+          ${laptopUp`
+            top: 40vh;
+          `}
+        `
       : `transition: all 2s; top: ${FIXED_MOBILE_HEADING_HEIGHT}px;`};
 `;
 
@@ -37,12 +42,17 @@ const MainHeading = styled.h1<{ splashOpen: boolean }>`
   font-weight: 700;
   text-align: center;
   margin-bottom: 4px;
+  display: none;
+  ${laptopUp`
+    display: block;
+  `}
   ${props => {
     if (props.splashOpen) {
       return css`
         font-size: 20px;
         letter-spacing: 10px;
         ${tabletUp`
+          display: block;
           font-size: 40px;
           letter-spacing: 20px;
         `}
