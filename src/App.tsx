@@ -99,32 +99,6 @@ const App: FunctionComponent = () => {
               </>
             );
           }}
-          {/* <MediaQuery maxWidth={BREAKPOINTS.tabletMax}>
-            {isMobile => {
-              if (isMobile) {
-                return (
-                  <>
-                    <FixedMobileHeading />
-                    <div
-                      style={{
-                        top: `${FIXED_MOBILE_HEADING_HEIGHT}px`,
-                        position: "relative"
-                      }}
-                    >
-                      <div style={{ fontSize: "40px" }}>Content</div>
-                      <br />
-                    </div>
-                  </>
-                );
-              }
-
-              return (
-                <>
-                  <LargeScreenHeading />
-                </>
-              );
-            }}
-          </MediaQuery> */}
         </Route>
       </AppContainer>
     </Router>
