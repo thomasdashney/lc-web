@@ -74,7 +74,9 @@ const MainHeading = styled.h1<{ splashOpen: boolean }>`
       `;
     }
   }}
-  filter: blur(0.7px);
+  ${laptopUp`
+    filter: blur(0.7px);
+  `}
 `;
 
 const AlbumFeatureContainer = styled.div`
@@ -107,7 +109,9 @@ const InSceneryDescription = styled.div`
   align-items: center;
   h2 {
     text-transform: uppercase;
-    filter: blur(0.5px);
+    ${laptopUp`
+      filter: blur(0.5px);
+    `}
     text-align: center;
     font-size: 24px;
     letter-spacing: 4px;
