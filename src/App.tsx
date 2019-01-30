@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -17,6 +17,8 @@ import { BREAKPOINTS, mediaQuery } from "./media-queries";
 import { FIXED_MOBILE_HEADING_HEIGHT } from "./FixedMobileHeading/constants";
 import SplashHeading from "./SplashHeading";
 import Main from "./Main";
+import { database } from "./firebase";
+import { ITourListings } from "./pages/Shows";
 
 const AppContainer = styled.div`
   position: absolute;
@@ -78,24 +80,40 @@ const FlowerBackground = styled.div<{ trippy: boolean }>`
 `;
 
 const App: FunctionComponent = () => {
+  const [tourListings, setTourListings] = useState<null | ITourListings>(null);
+  useEffect(() => {
+    const listingsRef = database.ref("tour_listings");
+    listingsRef.on("value", snapshot => {
+      if (snapshot) {
+        setTourListings(snapshot.val());
+      }
+    });
+
+    return function cleanup() {
+      listingsRef.off();
+    };
+  }, []);
+
   return (
     <Router>
       <AppContainer>
-        <MediaQuery maxWidth={BREAKPOINTS.mobileMax}>
-          {/* Don't show splash on mobile */}
-          <Redirect from="/" to="/music" />
-        </MediaQuery>
         <Route path="/" exact>
           {({ match, history }) => {
             const showSplash = !!match;
             return (
               <>
+                {showSplash && (
+                  <MediaQuery maxWidth={BREAKPOINTS.mobileMax}>
+                    {/* Don't show splash on mobile */}
+                    <Redirect from="/" to="/music" />
+                  </MediaQuery>
+                )}
                 <FlowerBackground trippy={!showSplash} />
                 <SplashHeading
                   show={showSplash}
                   onEnterSitePress={() => history.push("/music")}
                 />
-                <Main splashOpen={showSplash} />
+                <Main splashOpen={showSplash} tourListings={tourListings} />
               </>
             );
           }}
