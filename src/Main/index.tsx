@@ -1,22 +1,24 @@
 import React, { FunctionComponent } from "react";
 import styled, { css } from "styled-components";
 import inSceneryCoverUrl from "./in_scenery_cover.jpg";
-import { laptopUp, tabletUp, desktopUp } from "../media-queries";
+import { laptopUp, tabletUp, desktopUp, BREAKPOINTS } from "../media-queries";
 import appleMusicIcon from "./stream-platform-images/applemusic.png";
 import googlePlayIcon from "./stream-platform-images/googleplay.png";
 import itunesIcon from "./stream-platform-images/itunes.png";
 import spotifyIcon from "./stream-platform-images/spotify.png";
 import Navigation from "./Navigation";
+import MediaQuery from "react-responsive";
+import FixedMobileHeading from "../FixedMobileHeading";
+import { FIXED_MOBILE_HEADING_HEIGHT } from "../FixedMobileHeading/constants";
 
-const ContentContainer = styled.div<{ adjustForSplash: boolean }>`
+const ContentContainer = styled.div<{ splashOpen: boolean }>`
   z-index: 11;
   position: absolute;
   left: 0;
   right: 0;
-  top: 0;
   padding: 0;
   ${props =>
-    props.adjustForSplash
+    props.splashOpen
       ? `
     top: 40px;
     ${tabletUp`
@@ -27,16 +29,16 @@ const ContentContainer = styled.div<{ adjustForSplash: boolean }>`
       top: 40vh;
     `}
   `
-      : "transition: all 2s;"}
+      : `transition: all 2s; top: ${FIXED_MOBILE_HEADING_HEIGHT}px;`};
 `;
 
-const MainHeading = styled.h1<{ adjustForSplash: boolean }>`
+const MainHeading = styled.h1<{ splashOpen: boolean }>`
   text-transform: uppercase;
   font-weight: 700;
   text-align: center;
   margin-bottom: 4px;
   ${props => {
-    if (props.adjustForSplash) {
+    if (props.splashOpen) {
       return css`
         font-size: 20px;
         letter-spacing: 10px;
@@ -76,7 +78,7 @@ const MainHeading = styled.h1<{ adjustForSplash: boolean }>`
 `;
 
 const AlbumFeatureContainer = styled.div`
-  margin: 0 auto;
+  margin: 20px auto 0;
   padding: 0 12px;
   max-width: 800px;
   ${laptopUp`
@@ -136,42 +138,53 @@ interface IMainProps {
 
 const Main: FunctionComponent<IMainProps> = ({ splashOpen }) => {
   return (
-    <ContentContainer adjustForSplash={splashOpen}>
-      <MainHeading adjustForSplash={splashOpen}>Lost Cousins</MainHeading>
-      <Navigation show={!splashOpen} />
-      <AlbumFeatureContainer>
-        <InSceneryImg src={inSceneryCoverUrl} />
-        <InSceneryDescription>
-          <h2>
-            "In Scenery"
-            <br />
-            LP
-          </h2>
-          <InSceneryStreamingLinks>
-            <StreamingSiteLink
-              name="Spotify"
-              imageSrc={spotifyIcon}
-              linkTo="google.ca"
-            />
-            <StreamingSiteLink
-              name="Apple Music"
-              imageSrc={appleMusicIcon}
-              linkTo="google.ca"
-            />
-            <StreamingSiteLink
-              name="iTunes"
-              imageSrc={itunesIcon}
-              linkTo="google.ca"
-            />
-            <StreamingSiteLink
-              name="Google Play"
-              imageSrc={googlePlayIcon}
-              linkTo="google.ca"
-            />
-          </InSceneryStreamingLinks>
-        </InSceneryDescription>
-      </AlbumFeatureContainer>
-    </ContentContainer>
+    <>
+      {!splashOpen && (
+        <MediaQuery maxWidth={BREAKPOINTS.tabletMax}>
+          <FixedMobileHeading />
+        </MediaQuery>
+      )}
+      <ContentContainer splashOpen={splashOpen}>
+        <MediaQuery minWidth={BREAKPOINTS.tabletMin}>
+          <MainHeading splashOpen={splashOpen}>Lost Cousins</MainHeading>
+        </MediaQuery>
+        <MediaQuery minWidth={BREAKPOINTS.laptopMin}>
+          <Navigation show={!splashOpen} />
+        </MediaQuery>
+        <AlbumFeatureContainer>
+          <InSceneryImg src={inSceneryCoverUrl} />
+          <InSceneryDescription>
+            <h2>
+              "In Scenery"
+              <br />
+              LP
+            </h2>
+            <InSceneryStreamingLinks>
+              <StreamingSiteLink
+                name="Spotify"
+                imageSrc={spotifyIcon}
+                linkTo="google.ca"
+              />
+              <StreamingSiteLink
+                name="Apple Music"
+                imageSrc={appleMusicIcon}
+                linkTo="google.ca"
+              />
+              <StreamingSiteLink
+                name="iTunes"
+                imageSrc={itunesIcon}
+                linkTo="google.ca"
+              />
+              <StreamingSiteLink
+                name="Google Play"
+                imageSrc={googlePlayIcon}
+                linkTo="google.ca"
+              />
+            </InSceneryStreamingLinks>
+          </InSceneryDescription>
+        </AlbumFeatureContainer>
+      </ContentContainer>
+    </>
   );
 };
 

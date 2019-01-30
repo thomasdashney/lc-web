@@ -21,7 +21,7 @@ const NavigationItemList = styled.ul<{ show: boolean }>`
   justify-content: center;
   font-size: 20px;
   font-weight: 700;
-  letter-spacing: 8px;
+  letter-spacing: 6px;
   & > li {
     border: 3px double transparent;
     &:nth-child(odd) {

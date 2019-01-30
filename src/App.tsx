@@ -1,5 +1,10 @@
 import React, { FunctionComponent, useState } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect
+} from "react-router-dom";
 import flowerBgUrl from "./flower-bg/flower_bg.jpg";
 import flowerBg10Url from "./flower-bg/flower_bg@0,1x.jpg";
 import flowerBg25Url from "./flower-bg/flower_bg@0,25x.jpg";
@@ -76,6 +81,10 @@ const App: FunctionComponent = () => {
   return (
     <Router>
       <AppContainer>
+        <MediaQuery maxWidth={BREAKPOINTS.mobileMax}>
+          {/* Don't show splash on mobile */}
+          <Redirect from="/" to="/music" />
+        </MediaQuery>
         <Route path="/" exact>
           {({ match, history }) => {
             const showSplash = !!match;

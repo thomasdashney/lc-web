@@ -36,9 +36,11 @@ const EnterSiteButton = styled.button`
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.3);
 
+  display: none;
   ${tabletUp`
     font-size: 26px;
     color: #333;
+    display: block;
   `}
 
   font-size: 22px;

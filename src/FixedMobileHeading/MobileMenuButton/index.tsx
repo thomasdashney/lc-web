@@ -6,7 +6,7 @@ const MobileMenuButtonContainer = styled.button`
   background: none;
   border: none;
   text-transform: uppercase;
-  font-size: 34px;
+  font-size: 26px;
   font-weight: 500;
   display: flex;
   flex-direction: row;
