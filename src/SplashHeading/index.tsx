@@ -8,9 +8,9 @@ import MediaQuery from "react-responsive";
 
 const SplashHeadingContainer = styled.header<{ show: boolean }>`
   position: relative;
-  transition: all 2s;
   opacity: 0;
   visibility: hidden;
+  transition: all 2s;
   ${props => props.show && "opacity: 1; visibility: visible;"}
 `;
 
@@ -19,10 +19,6 @@ const ProjectionsImg = styled.img<{ show: boolean }>`
   width: 100%;
   position: absolute;
   object-fit: cover;
-  transition: all 2s;
-  filter: blur(5px);
-  transform: scale(1.01);
-  ${props => props.show && "filter: blur(0); transform: scale(1);"}
 `;
 
 const EnterSiteButton = styled.button`

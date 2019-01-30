@@ -13,12 +13,11 @@ const ContentContainer = styled.div<{ adjustForSplash: boolean }>`
   position: absolute;
   left: 0;
   right: 0;
-  transition: all 2s cubic-bezier(0.64, -0.24, 0.54, 0.88);
   top: 0;
   padding: 0;
   ${props =>
-    props.adjustForSplash &&
-    `
+    props.adjustForSplash
+      ? `
     top: 40px;
     ${tabletUp`
       padding: 12px;
@@ -27,7 +26,8 @@ const ContentContainer = styled.div<{ adjustForSplash: boolean }>`
     ${laptopUp`
       top: 40vh;
     `}
-  `}
+  `
+      : "transition: all 2s;"}
 `;
 
 const MainHeading = styled.h1<{ adjustForSplash: boolean }>`
