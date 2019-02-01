@@ -77,22 +77,22 @@ const Music: FunctionComponent = () => (
         <StreamingSiteLink
           name="Spotify"
           imageSrc={spotifyIcon}
-          linkTo="google.ca"
+          linkTo="https://open.spotify.com/album/4SzI1SV56ZfL5uD7E7JK0J?si=HSkhpKyOTsyXl2RaWObYmQ"
         />
         <StreamingSiteLink
           name="Apple Music"
           imageSrc={appleMusicIcon}
-          linkTo="google.ca"
+          linkTo="https://itunes.apple.com/us/album/in-scenery/1448575451"
         />
         <StreamingSiteLink
           name="iTunes"
           imageSrc={itunesIcon}
-          linkTo="google.ca"
+          linkTo="https://itunes.apple.com/us/album/in-scenery/1448575451"
         />
         <StreamingSiteLink
           name="Google Play"
           imageSrc={googlePlayIcon}
-          linkTo="google.ca"
+          linkTo="https://play.google.com/store/music/album/Lost_Cousins_In_Scenery?id=B3rgejlhmrujk2kjveapledzqme"
         />
       </InSceneryStreamingLinks>
     </InSceneryDescription>

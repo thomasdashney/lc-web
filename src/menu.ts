@@ -6,9 +6,21 @@ interface IMenuItem {
 
 export const MENU_ITEMS: IMenuItem[] = [
   { to: "/music", name: "Music" },
-  { to: "/shows", name: "Shows" },
-  { to: "/photos", name: "Photos" },
-  { to: "/videos", name: "Videos" },
+  {
+    to: "https://www.songkick.com/artists/8158333-lost-cousins/calendar",
+    name: "Shows",
+    external: true
+  },
+  {
+    to: "https://www.instagram.com/lostcousinsband",
+    name: "Photos",
+    external: true
+  },
+  {
+    to: "https://www.youtube.com/lostcousinsband",
+    name: "Videos",
+    external: true
+  },
   { to: "/connect", name: "Connect" },
   {
     to: "https://www.merchmrkt.com/merchmrkt/vendor/lostcousins",

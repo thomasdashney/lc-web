@@ -1,20 +1,12 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import flowerBgUrl from "./flower-bg/flower_bg.jpg";
 import flowerBg10Url from "./flower-bg/flower_bg@0,1x.jpg";
 import flowerBg25Url from "./flower-bg/flower_bg@0,25x.jpg";
 import flowerBg50Url from "./flower-bg/flower_bg@0,5x.jpg";
 import styled from "styled-components";
-import LargeScreenHeading from "./LargeScreenHeading";
-import FixedMobileHeading from "./FixedMobileHeading";
 import MediaQuery from "react-responsive";
 import { BREAKPOINTS, mediaQuery } from "./media-queries";
-import { FIXED_MOBILE_HEADING_HEIGHT } from "./FixedMobileHeading/constants";
 import SplashHeading from "./SplashHeading";
 import Main from "./Main";
 import { database } from "./firebase";
@@ -58,7 +50,6 @@ const FlowerBackground = styled.div<{ trippy: boolean }>`
   }
 
   transform: scale(1.1);
-  ${props => props.trippy && "animation: rotateHueBlur 24s alternate infinite;"}
 
   @keyframes rotateHueBlur {
     0% {

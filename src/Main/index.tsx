@@ -8,6 +8,7 @@ import { FIXED_MOBILE_HEADING_HEIGHT } from "../FixedMobileHeading/constants";
 import { Route } from "react-router";
 import Music from "../pages/Music";
 import Shows, { ITourListings } from "../pages/Shows";
+import Connect from "../pages/Connect";
 
 const ContentContainer = styled.div<{ splashOpen: boolean }>`
   z-index: 11;
@@ -102,6 +103,7 @@ const Main: FunctionComponent<IMainProps> = ({ splashOpen, tourListings }) => {
           <Navigation show={!splashOpen} />
         </MediaQuery>
         <Route path="/(|music)" component={Music} />
+        <Route path="/connect" component={Connect} />
         <Route
           path="/shows"
           render={() => <Shows tourListings={tourListings} />}
