@@ -15,7 +15,11 @@ const NavigationLink: FunctionComponent<INavigationLinkProps> = ({
   onClick
 }) => {
   if (external) {
-    return <a href={to}>{children}</a>;
+    return (
+      <a href={to} target="_blank">
+        {children}
+      </a>
+    );
   }
 
   return (

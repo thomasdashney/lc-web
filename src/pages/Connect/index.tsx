@@ -118,16 +118,16 @@ const Connect: FunctionComponent = () => (
       <ConnectLinksSection>
         <ConnectSubheading>Social Media</ConnectSubheading>
         <ConnectLinksGroup>
-          <a href="https://instagram.com/lostcousinsband">
+          <a target="_blank" href="https://instagram.com/lostcousinsband">
             <img alt="Instagram" src={igCLR} />
           </a>
-          <a href="https://facebook.com/lostcousinsband">
+          <a target="_blank" href="https://facebook.com/lostcousinsband">
             <img alt="Facebook" src={fbCLR} />
           </a>
-          <a href="https://twitter.com/lostcousinsband">
+          <a target="_blank" href="https://twitter.com/lostcousinsband">
             <img alt="Twitter" src={twitterCLR} />
           </a>
-          <a href="https://youtube.com/lostcousinsband">
+          <a target="_blank" href="https://youtube.com/lostcousinsband">
             <img alt="YouTube" src={ytCLR} />
           </a>
         </ConnectLinksGroup>
@@ -135,16 +135,19 @@ const Connect: FunctionComponent = () => (
       <ConnectLinksSection>
         <ConnectSubheading>Streaming</ConnectSubheading>
         <ConnectLinksGroup>
-          <a href="https://itunes.apple.com/ca/artist/lost-cousins/1022847502">
+          <a
+            target="_blank"
+            href="https://itunes.apple.com/ca/artist/lost-cousins/1022847502"
+          >
             <img alt="Apple Music" src={applemusic} />
           </a>
-          <a href="#">
+          <a target="_blank" href="#">
             <img alt="Google Play" src={googleplayCLR} />
           </a>
-          <a href="#">
+          <a target="_blank" href="#">
             <img alt="iTunes" src={itunesCLR} />
           </a>
-          <a href="#">
+          <a target="_blank" href="#">
             <img alt="Spotify" src={spotifyCLR} />
           </a>
         </ConnectLinksGroup>
@@ -178,7 +181,7 @@ const Connect: FunctionComponent = () => (
       <table>
         <tbody>
           <tr>
-            <td>Erin Carroll</td>
+            <td>Erin Carroll (CA)</td>
             <td>
               <a href="mailto:erin.carroll@cadencemusicgroup.com">
                 erin.carroll@cadencemusicgroup.com
@@ -186,7 +189,7 @@ const Connect: FunctionComponent = () => (
             </td>
           </tr>
           <tr>
-            <td>Jeff Kilgour</td>
+            <td>Jeff Kilgour (US)</td>
             <td>
               <a href="mailto:jeff@thesyn.com">jeff@thesyn.com</a>
             </td>
@@ -200,7 +203,7 @@ const Connect: FunctionComponent = () => (
         <tbody>
           <tr>
             <td>
-              <a href="mailto:lostcousinsband@gmail.com">
+              <a target="_blank" href="mailto:lostcousinsband@gmail.com">
                 lostcousinsband@gmail.com
               </a>
             </td>
