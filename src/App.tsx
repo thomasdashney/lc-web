@@ -51,6 +51,7 @@ const FlowerBackground = styled.div<{ trippy: boolean }>`
 
   transform: scale(1.1);
 
+  ${props => props.trippy && "animation: rotateHueBlur 24s alternate infinite;"}
   @keyframes rotateHueBlur {
     0% {
       filter: hue-rotate(40deg) blur(0.4px) brightness(80%);
