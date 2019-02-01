@@ -14,8 +14,8 @@ env:
     # AWS_SECRET_ACCESS_KEY
     - secure: Br3SNTg5m3sk69L/g2br3le/7viR1qFpqNSWah48Ndf+ZBosp6z7gzQteagYpdvVcf8qEqHx0icyuAk7FMBSuXlJHUrAKsOeRH79CfK2iM42Emj1Ho2zLmc6dQ5Zhum2yskG3CN2EL3uFet6ltVB8u3t9La9jxHtO/ZLiA0rNjFpxc2i1gsQAveYLFneKhd10XuyyFIf3ARieroe2E/vnrEbCmipl9KN6VkV7VjgMIVdemj3jeg7SCV0IQDwMP5VIUNLHM7ZZ0Y5/qlnA+F12RxwJ+ljIDzz//0EUpcIhEmdB0tHbH/awd/kh1BgkELzvLr6ydXbNEnfNTDCVK4uFiRgWkcTYo6F22KxgJdZ60QS0wOtMRaKRWwdX9Zw3/V2BNOnQl5R2UPodkUFETYrhDzGX/vRzgbWAzHXMJv2ufSElZzjEaY+ootqkZ/tpPqQQYetIknvXOMZq6bH4XnS+Rsec2KpU3YFtnfBZDwXhGNlfl3wYebNCJ3tkSKT4IeG9tTWl3hwaNf2WYOcb9lX/p1p6ObmGqAuBpCWjG2/eiYmWgLKPUnPXe064h9GUEejYvy1pYc+KIFev5O3SzklzHE8Av7BlIUywlA7uU1NFeC+qnKfcKFmD5FDRsneidr/i8f3QN9sKigRUAWoDDI8bR2CAxLU/DXI/Qbm9XCqtpQ=
     # AWS_CLOUDFRONT_DIST_ID
-    - secure: OzoAhLgbTx1eVeldOnKRUrDO61JRp2pe4Cxzr4zlgIzp3QXa+B/kbVueXo6gXSmP7qErz5AIbOIccwhAdRmWdAJYHgR+be8+P/b+lkOeomxY8TPSsaHaA+I+RX5YHFnLpe2+MWgDwLhoMNBA3B2097rykjQ73sCChYg10qssZAIRX1WMxh/JRx6NEclUwZrEVsYcH8uVsP5ryuU6m5huazeAgJJugMcQUJQ7pXMuRpN7IunIsVkCh3WHPdKSL/r8SJCCMMbuFVhzKrF50Uluf41tuQk4V7KklYIzZdbr3UOWLKe+YkhNEAw/ysH+Z/keUSkwo0dHEHjR5tE6P8iYbZ3IeU9sXOicj2pcyM/Bh39hDj+gfz8tK291KgZLaK1+9Mm04pG4WFboXMhTTI13p4WNrje0NYhOpstrdNgNGITFCt7Qnew9BbAqnIh00rzsP8elw4EKD3JzuMUvjlPohahYYCd1LSpSudvvQ35zUQ/y5h5eEtW2uS7v6wq6cZz897N283TqoNFIDhG8+bIhouVNNirkA+FFX3e7DdpTGgSg3jlzE0ITZ666XfhiZi4vE2JK9H5sOZM7Z4kxcYj6aWKxlnoB5GBoTH75Ry6KTp8HV+CKjgy2VEOz0BbGiU0V07MNG39Sz4uiTK1pysag3pcaSe0hQejQVVjsdpLOQHI=
-# install:
+    - secure: iCw6wQVdIhfm2DxZFw4P5It4r32Ptu04UyB2TIVaqB+u/AA+/Do5xXzYrGK7w0NouORUr9rKhpepJMexCMd2MSpXDYsVlJgIaOr18AghhEVRWL/KFQB/kpV+x4b4uidjLnm4AxKicY0Gw+4g5rZXjFzvuOC1VzzQVWpMQBShqEU2D/YIwJS8E+xw84GOZFQ++MULmt9nPPkdFe8mPKt5PpXpZOEMjl+AqcZEiPkiXxYZ6tcOZ+LZxPmZOH3T5mlKZnfa9p+YSkkXvvc1B4NOqIRgss535Ljy31fvjD8775Z2qXliPGK2yS01mtUGY/nlietovfnwgMO69mx/3WMb7dBwl8sxFdxLe/quvMUvUEAkV0ko/tn1D+mDU1IX7TsYmYN0o+MeLoAuOTPf7xa5MaTzDB6wv+Flubga5spM2yO42rmTo2DIdBgXZmc5Qpf8U5w0D1R77md+JwlPhR7kdM2lQdZWA5a2MZe4ty9iTtEReuKPzhlFMC+s0jVZOo9bLAKJu65EzVJt+PEYCkHoBRaGrdePi66TKc+tzcccfL0HsSxabtLMzDGbetwwZ1GZfIgVDN31/WnEkQy88m6UM4Vo2kdlJ6jWI2fI54e99HhvHcaZj70FrDCOoeammfHIUInfE9zQpynrLhUY6LWAms2KIV3lzbIUr9dQmoLAHH4=
+install:
   - npm install
   - npm install -g travis-ci-cloudfront-invalidation
 before_deploy:
@@ -33,4 +33,4 @@ deploy:
     repo: thomasdashney/lc-web
     branch: master
 after_deploy:
--  travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY -s $AWS_SECRET_ACCESS_KEY -c $AWS_CLOUDFRONT_DIST_ID -i '/index.html' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST
+  - travis-ci-cloudfront-invalidation -a $AWS_ACCESS_KEY -s $AWS_SECRET_ACCESS_KEY -c $AWS_CLOUDFRONT_DIST_ID -i '/index.html' -b $TRAVIS_BRANCH -p $TRAVIS_PULL_REQUEST
