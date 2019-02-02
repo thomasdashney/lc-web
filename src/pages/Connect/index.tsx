@@ -141,13 +141,22 @@ const Connect: FunctionComponent = () => (
           >
             <img alt="Apple Music" src={applemusic} />
           </a>
-          <a target="_blank" href="#">
+          <a
+            target="_blank"
+            href="https://play.google.com/store/music/artist/Lost_Cousins?id=Aqsswaxdhpkmhdwlr3n2b62mige"
+          >
             <img alt="Google Play" src={googleplayCLR} />
           </a>
-          <a target="_blank" href="#">
+          <a
+            target="_blank"
+            href="https://itunes.apple.com/ca/artist/lost-cousins/1022847502"
+          >
             <img alt="iTunes" src={itunesCLR} />
           </a>
-          <a target="_blank" href="#">
+          <a
+            target="_blank"
+            href="https://open.spotify.com/artist/2yZQbeFIRhUpRehbauidnq?si=W8yFVyGUS_CTpBcfo1EJHA"
+          >
             <img alt="Spotify" src={spotifyCLR} />
           </a>
         </ConnectLinksGroup>
