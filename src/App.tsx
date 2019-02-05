@@ -11,6 +11,7 @@ import SplashHeading from "./SplashHeading";
 import Main from "./Main";
 import { database } from "./firebase";
 import { ITourListings } from "./pages/Shows";
+import Redirects from "./Redirects";
 
 const AppContainer = styled.div`
   position: absolute;
@@ -89,27 +90,29 @@ const App: FunctionComponent = () => {
   return (
     <Router>
       <AppContainer>
-        <Route path="/" exact>
-          {({ match, history }) => {
-            const showSplash = !!match;
-            return (
-              <>
-                {showSplash && (
-                  <MediaQuery maxWidth={BREAKPOINTS.mobileMax}>
-                    {/* Don't show splash on mobile */}
-                    <Redirect from="/" to="/music" />
-                  </MediaQuery>
-                )}
-                <FlowerBackground trippy={!showSplash} />
-                <SplashHeading
-                  show={showSplash}
-                  onEnterSitePress={() => history.push("/music")}
-                />
-                <Main splashOpen={showSplash} tourListings={tourListings} />
-              </>
-            );
-          }}
-        </Route>
+        <Redirects>
+          <Route path="/" exact>
+            {({ match, history }) => {
+              const showSplash = !!match;
+              return (
+                <>
+                  {showSplash && (
+                    <MediaQuery maxWidth={BREAKPOINTS.mobileMax}>
+                      {/* Don't show splash on mobile */}
+                      <Redirect from="/" to="/music" />
+                    </MediaQuery>
+                  )}
+                  <FlowerBackground trippy={!showSplash} />
+                  <SplashHeading
+                    show={showSplash}
+                    onEnterSitePress={() => history.push("/music")}
+                  />
+                  <Main splashOpen={showSplash} tourListings={tourListings} />
+                </>
+              );
+            }}
+          </Route>
+        </Redirects>
       </AppContainer>
     </Router>
   );
