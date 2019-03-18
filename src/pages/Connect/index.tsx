@@ -167,7 +167,15 @@ const Connect: FunctionComponent = () => (
       <table>
         <tbody>
           <tr>
-            <td>Grant Paley</td>
+            <td>Rob Thornton (CA/US)</td>
+            <td>
+              <a href="mailto:rob@paquinartistsagency.com">
+                rob@paquinartistsagency.com
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td>Grant Paley (CA/US)</td>
             <td>
               <a href="mailto:grant@paquinartistsagency.com">
                 grant@paquinartistsagency.com
@@ -175,10 +183,10 @@ const Connect: FunctionComponent = () => (
             </td>
           </tr>
           <tr>
-            <td>Rob Thornton</td>
+            <td>Kai Lehmann (World Excluding NA)</td>
             <td>
-              <a href="mailto:rob@paquinartistsagency.com">
-                rob@paquinartistsagency.com
+              <a href="mailto:kai.lehmann@cabinartists.com">
+                kai.lehmann@cabinartists.com
               </a>
             </td>
           </tr>
