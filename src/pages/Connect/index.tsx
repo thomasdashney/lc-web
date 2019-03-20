@@ -8,6 +8,7 @@ import applemusic from "./streaming-icons/applemusic.png";
 import googleplayCLR from "./streaming-icons/googleplayCLR.png";
 import itunesCLR from "./streaming-icons/itunesCLR.png";
 import spotifyCLR from "./streaming-icons/spotifyCLR.png";
+import deezer from "./streaming-icons/deezer.png";
 import { tabletUp, laptopUp } from "../../media-queries";
 
 const ConnectContainer = styled.div`
@@ -158,6 +159,9 @@ const Connect: FunctionComponent = () => (
             href="https://open.spotify.com/artist/2yZQbeFIRhUpRehbauidnq?si=W8yFVyGUS_CTpBcfo1EJHA"
           >
             <img alt="Spotify" src={spotifyCLR} />
+          </a>
+          <a target="_blank" href="https://www.deezer.com/en/artist/8564840">
+            <img alt="Deezer" src={deezer} />
           </a>
         </ConnectLinksGroup>
       </ConnectLinksSection>

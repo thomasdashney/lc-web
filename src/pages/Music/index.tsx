@@ -5,6 +5,7 @@ import appleMusicIcon from "./stream-platform-images/applemusic.png";
 import googlePlayIcon from "./stream-platform-images/googleplay.png";
 import itunesIcon from "./stream-platform-images/itunes.png";
 import spotifyIcon from "./stream-platform-images/spotify.png";
+import deezerIcon from "./stream-platform-images/deezer.png";
 import inSceneryCoverUrl from "./in_scenery_cover.jpg";
 
 const HomeContainer = styled.div`
@@ -93,6 +94,11 @@ const Music: FunctionComponent = () => (
           name="Google Play"
           imageSrc={googlePlayIcon}
           linkTo="https://play.google.com/store/music/album/Lost_Cousins_In_Scenery?id=B3rgejlhmrujk2kjveapledzqme"
+        />
+        <StreamingSiteLink
+          name="Deezer"
+          imageSrc={deezerIcon}
+          linkTo="https://www.deezer.com/en/artist/8564840"
         />
       </InSceneryStreamingLinks>
     </InSceneryDescription>
