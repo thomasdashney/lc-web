@@ -32,7 +32,7 @@ const EnterSiteButton = styled.button`
   text-transform: uppercase;
   font-weight: 500;
   color: #ddd;
-  filter: blur(0.6px);
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.3);
 

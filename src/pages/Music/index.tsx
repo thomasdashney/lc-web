@@ -38,10 +38,8 @@ const InSceneryDescription = styled.div`
   align-items: center;
   h2 {
     text-transform: uppercase;
-    ${laptopUp`
-    filter: blur(0.5px);
-  `}
     text-align: center;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
     font-size: 24px;
     letter-spacing: 4px;
     ${laptopUp`

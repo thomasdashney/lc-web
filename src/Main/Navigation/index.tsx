@@ -39,7 +39,7 @@ const NavigationItemList = styled.ul<{ show: boolean }>`
     color: white;
     text-decoration: none;
     text-transform: uppercase;
-    filter: blur(0.5px);
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
 
     transition: all 0.1s;
     opacity: 0.7;

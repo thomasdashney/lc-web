@@ -33,6 +33,7 @@ const ContentContainer = styled.div<{ splashOpen: boolean }>`
 const MainHeading = styled.h1<{ splashOpen: boolean }>`
   text-transform: uppercase;
   font-weight: 700;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
   text-align: center;
   margin-bottom: 4px;
   display: none;
@@ -77,9 +78,6 @@ const MainHeading = styled.h1<{ splashOpen: boolean }>`
       `;
     }
   }}
-  ${laptopUp`
-    filter: blur(0.7px);
-  `}
 `;
 
 interface IMainProps {
