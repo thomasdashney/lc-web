@@ -2,11 +2,10 @@ import React, { FunctionComponent } from "react";
 import styled from "styled-components";
 import { laptopUp, tabletUp } from "../../media-queries";
 import appleMusicIcon from "./stream-platform-images/applemusic.png";
-import googlePlayIcon from "./stream-platform-images/googleplay.png";
 import itunesIcon from "./stream-platform-images/itunes.png";
 import spotifyIcon from "./stream-platform-images/spotify.png";
 import deezerIcon from "./stream-platform-images/deezer.png";
-import inSceneryCoverUrl from "./in_scenery_cover.jpg";
+import stayCoverUrl from "./stay_cover.jpg";
 
 const HomeContainer = styled.div`
   margin: 20px auto 0;
@@ -21,7 +20,7 @@ const HomeContainer = styled.div`
 `}
 `;
 
-const InSceneryImg = styled.img`
+const ReleaseImg = styled.img`
   width: 320px;
   max-width: 100%;
   display: block;
@@ -32,7 +31,7 @@ const InSceneryImg = styled.img`
 `}
 `;
 
-const InSceneryDescription = styled.div`
+const ReleaseDescription = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,19 +39,33 @@ const InSceneryDescription = styled.div`
     text-transform: uppercase;
     text-align: center;
     text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.2);
-    font-size: 24px;
+    font-size: 22px;
     letter-spacing: 4px;
     ${laptopUp`
-    font-size: 36px;
-    letter-spacing: 12px;
+    font-size: 40px;
+    letter-spacing: 6px;
+    margin-bottom: 44px;
+    line-height: 40px;
+    small {
+      font-size: 19px;
+      letter-spacing: 2px;
+    }
   `}
   }
   ${laptopUp`
-  width: 800px;
-`}
+    width: 800px;
+  `}
+
+  a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    &:hover {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
 `;
 
-const InSceneryStreamingLinks = styled.div`
+const ReleaseStreamingLinks = styled.div`
   padding-bottom: 20px;
   & a {
     padding: 0 10px;
@@ -65,41 +78,37 @@ const InSceneryStreamingLinks = styled.div`
 
 const Music: FunctionComponent = () => (
   <HomeContainer>
-    <InSceneryImg src={inSceneryCoverUrl} />
-    <InSceneryDescription>
-      <h2>
-        "In Scenery"
-        <br />
-        LP
-      </h2>
-      <InSceneryStreamingLinks>
+    <ReleaseImg src={stayCoverUrl} />
+    <ReleaseDescription>
+      <a href="https://ffm.to/lostcousins-stay">
+        <h2>
+          - Stay -<br />
+          <small>Mystery Jets Remix Out Now</small>
+        </h2>
+      </a>
+      <ReleaseStreamingLinks>
         <StreamingSiteLink
           name="Spotify"
           imageSrc={spotifyIcon}
-          linkTo="https://open.spotify.com/album/4SzI1SV56ZfL5uD7E7JK0J?si=HSkhpKyOTsyXl2RaWObYmQ"
+          linkTo="https://open.spotify.com/album/5rcT8BRnmLxY0ZfODJBgdG"
         />
         <StreamingSiteLink
           name="Apple Music"
           imageSrc={appleMusicIcon}
-          linkTo="https://itunes.apple.com/us/album/in-scenery/1448575451"
+          linkTo="https://api.ffm.to/sl/e/c/lostcousins-stay?cd=eyJ1YSI6eyJ1YSI6Ik1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE0XzUpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS83Ni4wLjM4MDkuMTMyIFNhZmFyaS81MzcuMzYiLCJicm93c2VyIjp7Im5hbWUiOiJDaHJvbWUiLCJ2ZXJzaW9uIjoiNzYuMC4zODA5LjEzMiIsIm1ham9yIjoiNzYifSwiZW5naW5lIjp7Im5hbWUiOiJXZWJLaXQiLCJ2ZXJzaW9uIjoiNTM3LjM2In0sIm9zIjp7Im5hbWUiOiJNYWMgT1MiLCJ2ZXJzaW9uIjoiMTAuMTQuNSJ9LCJkZXZpY2UiOnt9LCJjcHUiOnt9fSwiY2xpZW50Ijp7InJpZCI6ImNlOTNlZmZjLTZjZGUtNDQyNC04MjI3LTVkYTE3MmU5MjQ4MCIsInNpZCI6ImJmNzAzZjMxLWY2YjYtNGI1ZS1hMDFhLTVmNmMzNGUyY2EwNiIsImlwIjoiNjIuMjE0LjE5MS4yMCIsInJlZiI6Imh0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS8iLCJob3N0IjoiZmZtLnRvIiwibGFuZyI6ImVuLVVTIn0sImlzRnJvbUVVIjp0cnVlLCJjb3VudHJ5Q29kZSI6IkRFIiwiaWQiOiI1ZDY1N2JjNjQ4MDAwMGRiNTBjZjhiNzUiLCJ0em8iOjI0MCwiY2giOm51bGwsImFuIjpudWxsLCJkZXN0VXJsIjoiaHR0cHM6Ly9nZW8uaXR1bmVzLmFwcGxlLmNvbS9kZS9hbGJ1bS9zdGF5LWFsdGVybmF0ZS1taXhlcy1zaW5nbGUvMTQ3ODE5NDc3OT91bz00JmFwcD1tdXNpYyZhdD0xMDAwbElYZCIsInZpZCI6ImNkN2FiNWZlLTk5YjQtNGNmZC1iOTgwLWQ1ZmExZTFlNDliNCIsInNydmMiOiJhcHBsZSIsInByb2R1Y3QiOiJzbWFydGxpbmsiLCJzaG9ydElkIjoibG9zdGNvdXNpbnMtc3RheSIsImlzQXV0aG9yaXphdGlvblJlcXVpcmVkIjpmYWxzZX0="
         />
         <StreamingSiteLink
           name="iTunes"
           imageSrc={itunesIcon}
-          linkTo="https://itunes.apple.com/us/album/in-scenery/1448575451"
-        />
-        <StreamingSiteLink
-          name="Google Play"
-          imageSrc={googlePlayIcon}
-          linkTo="https://play.google.com/store/music/album/Lost_Cousins_In_Scenery?id=B3rgejlhmrujk2kjveapledzqme"
+          linkTo="https://api.ffm.to/sl/e/c/lostcousins-stay?cd=eyJ1YSI6eyJ1YSI6Ik1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE0XzUpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS83Ni4wLjM4MDkuMTMyIFNhZmFyaS81MzcuMzYiLCJicm93c2VyIjp7Im5hbWUiOiJDaHJvbWUiLCJ2ZXJzaW9uIjoiNzYuMC4zODA5LjEzMiIsIm1ham9yIjoiNzYifSwiZW5naW5lIjp7Im5hbWUiOiJXZWJLaXQiLCJ2ZXJzaW9uIjoiNTM3LjM2In0sIm9zIjp7Im5hbWUiOiJNYWMgT1MiLCJ2ZXJzaW9uIjoiMTAuMTQuNSJ9LCJkZXZpY2UiOnt9LCJjcHUiOnt9fSwiY2xpZW50Ijp7InJpZCI6ImNlOTNlZmZjLTZjZGUtNDQyNC04MjI3LTVkYTE3MmU5MjQ4MCIsInNpZCI6ImJmNzAzZjMxLWY2YjYtNGI1ZS1hMDFhLTVmNmMzNGUyY2EwNiIsImlwIjoiNjIuMjE0LjE5MS4yMCIsInJlZiI6Imh0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS8iLCJob3N0IjoiZmZtLnRvIiwibGFuZyI6ImVuLVVTIn0sImlzRnJvbUVVIjp0cnVlLCJjb3VudHJ5Q29kZSI6IkRFIiwiaWQiOiI1ZDY1N2JjNjQ4MDAwMGRiNTBjZjhiNzUiLCJ0em8iOjI0MCwiY2giOm51bGwsImFuIjpudWxsLCJkZXN0VXJsIjoiaHR0cHM6Ly9nZW8uaXR1bmVzLmFwcGxlLmNvbS9kZS9hbGJ1bS9zdGF5LWFsdGVybmF0ZS1taXhlcy1zaW5nbGUvMTQ3ODE5NDc3OT91bz00JmFwcD1pdHVuZXMmYXQ9MTAwMGxJWGQiLCJ2aWQiOiJjZDdhYjVmZS05OWI0LTRjZmQtYjk4MC1kNWZhMWUxZTQ5YjQiLCJzcnZjIjoiaXR1bmVzIiwicHJvZHVjdCI6InNtYXJ0bGluayIsInNob3J0SWQiOiJsb3N0Y291c2lucy1zdGF5IiwiaXNBdXRob3JpemF0aW9uUmVxdWlyZWQiOmZhbHNlfQ=="
         />
         <StreamingSiteLink
           name="Deezer"
           imageSrc={deezerIcon}
-          linkTo="https://www.deezer.com/en/artist/8564840"
+          linkTo="https://api.ffm.to/sl/e/c/lostcousins-stay?cd=eyJ1YSI6eyJ1YSI6Ik1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzE0XzUpIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS83Ni4wLjM4MDkuMTMyIFNhZmFyaS81MzcuMzYiLCJicm93c2VyIjp7Im5hbWUiOiJDaHJvbWUiLCJ2ZXJzaW9uIjoiNzYuMC4zODA5LjEzMiIsIm1ham9yIjoiNzYifSwiZW5naW5lIjp7Im5hbWUiOiJXZWJLaXQiLCJ2ZXJzaW9uIjoiNTM3LjM2In0sIm9zIjp7Im5hbWUiOiJNYWMgT1MiLCJ2ZXJzaW9uIjoiMTAuMTQuNSJ9LCJkZXZpY2UiOnt9LCJjcHUiOnt9fSwiY2xpZW50Ijp7InJpZCI6ImNlOTNlZmZjLTZjZGUtNDQyNC04MjI3LTVkYTE3MmU5MjQ4MCIsInNpZCI6ImJmNzAzZjMxLWY2YjYtNGI1ZS1hMDFhLTVmNmMzNGUyY2EwNiIsImlwIjoiNjIuMjE0LjE5MS4yMCIsInJlZiI6Imh0dHBzOi8vd3d3LmZhY2Vib29rLmNvbS8iLCJob3N0IjoiZmZtLnRvIiwibGFuZyI6ImVuLVVTIn0sImlzRnJvbUVVIjp0cnVlLCJjb3VudHJ5Q29kZSI6IkRFIiwiaWQiOiI1ZDY1N2JjNjQ4MDAwMGRiNTBjZjhiNzUiLCJ0em8iOjI0MCwiY2giOm51bGwsImFuIjpudWxsLCJkZXN0VXJsIjoiaHR0cHM6Ly93d3cuZGVlemVyLmNvbS9hbGJ1bS8xMDkxNTc1NDIiLCJ2aWQiOiJjZDdhYjVmZS05OWI0LTRjZmQtYjk4MC1kNWZhMWUxZTQ5YjQiLCJzcnZjIjoiZGVlemVyIiwicHJvZHVjdCI6InNtYXJ0bGluayIsInNob3J0SWQiOiJsb3N0Y291c2lucy1zdGF5IiwiaXNBdXRob3JpemF0aW9uUmVxdWlyZWQiOmZhbHNlfQ=="
         />
-      </InSceneryStreamingLinks>
-    </InSceneryDescription>
+      </ReleaseStreamingLinks>
+    </ReleaseDescription>
   </HomeContainer>
 );
 
