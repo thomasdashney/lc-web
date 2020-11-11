@@ -167,21 +167,6 @@ const Connect: FunctionComponent = () => (
       </ConnectLinksSection>
     </ConnectLinks>
     <ConnectContactsGroup>
-      <ConnectSubheading>Management</ConnectSubheading>
-      <table>
-        <tbody>
-          <tr>
-            <td>Meg Symsyk</td>
-            <td>
-              <a href="mailto:msymsyk@entonegroup.com">
-                msymsyk@entonegroup.com
-              </a>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </ConnectContactsGroup>
-    <ConnectContactsGroup>
       <ConnectSubheading>Booking</ConnectSubheading>
       <table>
         <tbody>
